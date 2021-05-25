@@ -24,9 +24,9 @@ class Tree
     private $node;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $depth;
+    private $original;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -34,9 +34,15 @@ class Tree
     private $flattened;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $depth;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;
+
 
     public function __construct()
     {
@@ -127,6 +133,18 @@ class Tree
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getOriginal(): ?string
+    {
+        return $this->original;
+    }
+
+    public function setOriginal(?string $original): self
+    {
+        $this->original = $original;
 
         return $this;
     }
