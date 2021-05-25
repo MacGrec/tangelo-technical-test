@@ -7,16 +7,17 @@ use App\Controller\Service\GetTreeList;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class TreeController extends AbstractFOSRestController
 {
     const INPUT_ARRAY_STRUCTURE_IS_NOT_CORRECT = "Input array structure is not correct";
+    const MESSAGE_KEY = "message";
+    const CODE_KEY = "code";
 
     /**
-     * @Rest\Post(path="/convert", requirements={"id"="\d+"})
+     * @Rest\Post(path="/tree/flatten", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"convert"}, serializerEnableMaxDepthChecks=true)
      */
     public function convertAction(Request $request, BuildTree $buildTree)
@@ -36,7 +37,7 @@ class TreeController extends AbstractFOSRestController
     }
 
     /**
-     * @Rest\Post(path="/tree/list")
+     * @Rest\Get(path="/tree/list")
      * @Rest\View(serializerGroups={"tree"}, serializerEnableMaxDepthChecks=true)
      */
     public function listAction(GetTreeList $getTreeList)
@@ -47,8 +48,8 @@ class TreeController extends AbstractFOSRestController
 
     private function buildBadRequest(): array
     {
-        $response = self::INPUT_ARRAY_STRUCTURE_IS_NOT_CORRECT;
         $response_code = Response::HTTP_BAD_REQUEST;
+        $response = [self::CODE_KEY => $response_code, self::MESSAGE_KEY => self::INPUT_ARRAY_STRUCTURE_IS_NOT_CORRECT];
         return [$response, $response_code];
     }
 }
