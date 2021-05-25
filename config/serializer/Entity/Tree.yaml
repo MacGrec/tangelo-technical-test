@@ -1,10 +1,11 @@
 App\Entity\Tree:
   attributes:
-    id:
-      groups: ['tree']
-    depth:
-      groups: [ 'tree', 'convert']
+    original:
+      groups: [ 'tree' ]
     flattened:
-      groups: [ 'tree', 'convert']
+      groups: [ 'tree', 'convert' ]
+    depth:
+      groups: [ 'tree', 'convert' ]
     created_at:
       groups: [ 'tree' ]
+
