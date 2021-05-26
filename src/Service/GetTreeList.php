@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller\Service;
+namespace App\Service;
 
 use App\Repository\TreeRepository;
 use Doctrine\Common\Collections\Collection;

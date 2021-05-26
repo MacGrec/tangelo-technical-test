@@ -2,8 +2,8 @@
 
 namespace App\Controller\Api;
 
-use App\Controller\Service\BuildTree;
-use App\Controller\Service\GetTreeList;
+use App\Service\BuildTree;
+use App\Service\GetTreeList;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;

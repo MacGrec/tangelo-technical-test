@@ -3,8 +3,7 @@
 
 namespace App\Tests\Unit;
 
-
-use App\Controller\Service\BuildTree;
+use App\Service\BuildTree;
 use App\Entity\Tree;
 use App\Repository\NodeRepository;
 use App\Repository\TreeRepository;

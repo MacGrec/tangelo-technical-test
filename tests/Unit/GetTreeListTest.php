@@ -3,9 +3,7 @@
 
 namespace App\Tests\Unit;
 
-
-use App\Controller\Service\BuildTree;
-use App\Controller\Service\GetTreeList;
+use App\Service\GetTreeList;
 use App\Entity\Tree;
 use App\Repository\TreeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
