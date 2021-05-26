@@ -22,13 +22,16 @@ Also, when I tried to use the ORM to recover the full structure of the tree I ha
 - To think in a way to give more information of why the input is not correct without made the code more complex
 - To write more functional test of different bad requests to cover more cases
 
-# How to run
+# How to run (Follow the order)
 - **up containers:** docker-compose up -d --build
+- **Prepare vendor directory:** docker-compose exec app composer install
 - **Build dataBase:**  docker-compose exec app php bin/console doctrine:migrations:migrate
 
 # Launch tests
-- **Unit Tests:** docker-compose exec app bin/phpunit tests/Unit
-- **Functional Tests:** docker-compose exec app bin/phpunit tests/Functional
+- **Unit Tests:** 
+  - docker-compose exec app ./vendor/bin/phpunit tests/Unit
+- **Functional Tests:** 
+  -  docker-compose exec app ./vendor/bin/phpunit tests/Functional
 
 # Postman
 Import **tangelo-test.postman_collection.json** using postman to use the api.
