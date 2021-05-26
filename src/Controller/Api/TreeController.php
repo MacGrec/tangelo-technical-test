@@ -20,7 +20,10 @@ class TreeController extends AbstractFOSRestController
      * @Rest\Post(path="/tree/flatten", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"convert"}, serializerEnableMaxDepthChecks=true)
      */
-    public function convertAction(Request $request, BuildTree $buildTree)
+    public function convertAction(
+        Request $request,
+        BuildTree $buildTree
+    )
     {
         $request_content = $request->getContent();
         if (empty($request_content)) {

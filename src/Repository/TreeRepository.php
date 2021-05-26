@@ -66,7 +66,10 @@ class TreeRepository extends ServiceEntityRepository
         return $tree;
     }
 
-    public function findOrderBy(string $criteria, int $limit): Collection
+    public function findOrderBy(
+        string $criteria,
+        int $limit
+    ): Collection
     {
         $sql = 'SELECT * FROM tree WHERE flattened IS NOT NULL AND LENGTH(flattened) > 0 ORDER BY ' . $criteria .' DESC LIMIT ' . $limit .';';
         $database_returned = $this->getDatabaseData($sql);

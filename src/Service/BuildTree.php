@@ -67,7 +67,10 @@ class BuildTree
          return $this->successfulRequest();
      }
 
-    public function saveAccumulated(string &$accumulated, Node &$last_node): void
+    public function saveAccumulated(
+        string &$accumulated,
+        Node &$last_node
+    ): void
     {
         if (!empty($accumulated)) {
             $this->flatten_array_true[] = $accumulated;
@@ -118,7 +121,13 @@ class BuildTree
         return $flatten;
     }
 
-    private function saveClosure(int &$depth, string &$accumulated, ?Node &$last_node, string $request_character, ?Node &$current_node): void
+    private function saveClosure(
+        int &$depth,
+        string &$accumulated,
+        ?Node &$last_node,
+        string $request_character,
+        ?Node &$current_node
+    ): void
     {
         $this->UpdateDepth($depth);
         if (!empty($accumulated)) {
@@ -141,7 +150,12 @@ class BuildTree
         $last_node = $current_node;
     }
 
-    private function saveOpening(string $request_character, Node &$last_node, int &$depth, ?Node &$current_node): void
+    private function saveOpening(
+        string $request_character,
+        Node &$last_node,
+        int &$depth,
+        ?Node &$current_node
+    ): void
     {
         $open_node = new Node();
         $open_node->setValue($request_character);
@@ -219,7 +233,10 @@ class BuildTree
         return $this->tree;
     }
 
-    private function isBadStructure(string $accumulated, Node $last_node): bool
+    private function isBadStructure(
+        string $accumulated,
+        Node $last_node
+    ): bool
     {
         return !empty($accumulated) || is_null($last_node);
     }

@@ -64,7 +64,10 @@ class NodeRepository extends ServiceEntityRepository
         return $node;
     }
 
-    public function saveNodeRelation(Node $parent, Node $children)
+    public function saveNodeRelation(
+        Node $parent,
+        Node $children
+    )
     {
         $parent_id = $parent->getId();
         $children_id = $children->getId();
